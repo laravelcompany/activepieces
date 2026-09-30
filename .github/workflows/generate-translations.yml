@@ -77,7 +77,7 @@ jobs:
     # Only run when any of the shards failed; still evaluate even if they failed
     if: ${{ github.repository == 'activepieces/activepieces' && always() && contains(needs.*.result, 'failure') }}
     needs: [shard-0, shard-1, shard-2, shard-3, shard-4, shard-5]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Notify Discord on shard failure
         run: |

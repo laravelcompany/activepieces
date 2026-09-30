@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   check-label:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     outputs:
       should-run-e2e: ${{ steps.check-if-pr-has-label.outputs.run-e2e }}
     steps:
@@ -74,7 +74,7 @@ jobs:
   notify-on-completion:
     needs: [check-label, test-e2e-ce, test-e2e-ee]
     if: always() && needs.check-label.outputs.should-run-e2e == 'true'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4

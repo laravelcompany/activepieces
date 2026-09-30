@@ -6,7 +6,7 @@ on:
 jobs:
   Build:
     if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
@@ -35,7 +35,7 @@ jobs:
 
   Dev-Testing:
     needs: Build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Configure SSH
         run: |

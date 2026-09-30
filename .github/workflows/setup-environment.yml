@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   Setup-Preview-Environment:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: github.repository == 'activepieces/activepieces' && github.event.pull_request.head.repo.full_name == 'activepieces/activepieces'
     env:
       NX_NO_CLOUD: true 

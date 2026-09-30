@@ -8,7 +8,7 @@ jobs:
     permissions:
       issues: write # to comment on issues (aws-actions/closed-issue-message)
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: github.repository_owner == 'activepieces'
     steps:
       - uses: aws-actions/closed-issue-message@v1

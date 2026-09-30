@@ -7,7 +7,7 @@ on:
 
 jobs:
   auto-merge-bot-pr:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     if: |
       github.event.pull_request.user.login == 'automated-commits-ap' &&
@@ -179,7 +179,7 @@ jobs:
   notify-failure:
     needs: [auto-merge-bot-pr]
     if: ${{ always() && needs.auto-merge-bot-pr.result == 'failure' }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Notify Discord on failure
         run: |
